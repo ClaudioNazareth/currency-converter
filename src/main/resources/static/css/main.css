@@ -1,0 +1,17 @@
+
+footer {
+  margin-top: 40%;
+  margin-left: 42%;
+}
+
+h1 {
+  color: #78ab46;
+}
+
+.error-message {
+  color: #a94442;
+}
+
+.error-message:first-letter {
+  text-transform: capitalize;
+}
