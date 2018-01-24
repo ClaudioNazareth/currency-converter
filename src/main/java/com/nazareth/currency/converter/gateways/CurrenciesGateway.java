@@ -1,8 +1,10 @@
 package com.nazareth.currency.converter.gateways;
 
-import com.nazareth.currency.converter.gateways.http.feign.jsons.CurrenciesResponse;
+import com.nazareth.currency.converter.domains.mongo.Currencies;
 
 public interface CurrenciesGateway {
 
-  CurrenciesResponse getCurrencies();
+  Currencies getCurrencies();
+
+  Currencies getHistoricalCurrencies(String date);
 }

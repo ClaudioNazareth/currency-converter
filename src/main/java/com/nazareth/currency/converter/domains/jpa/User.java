@@ -1,4 +1,4 @@
-package com.nazareth.currency.converter.domains;
+package com.nazareth.currency.converter.domains.jpa;
 
 import static com.nazareth.currency.converter.utils.PasswordUtils.generateBCrypt;
 

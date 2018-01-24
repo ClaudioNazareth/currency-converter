@@ -1,6 +1,6 @@
 package com.nazareth.currency.converter.gateways.h2.repositories;
 
-import com.nazareth.currency.converter.domains.User;
+import com.nazareth.currency.converter.domains.jpa.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

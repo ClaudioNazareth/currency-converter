@@ -1,7 +1,7 @@
 package com.nazareth.currency.converter.controllers;
 
 import com.nazareth.currency.converter.controllers.jsons.UserRequest;
-import com.nazareth.currency.converter.domains.User;
+import com.nazareth.currency.converter.domains.jpa.User;
 import com.nazareth.currency.converter.usecases.CrudUser;
 import java.util.Optional;
 import javax.validation.Valid;

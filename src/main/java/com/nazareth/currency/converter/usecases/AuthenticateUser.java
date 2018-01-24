@@ -1,7 +1,7 @@
 package com.nazareth.currency.converter.usecases;
 
-import com.nazareth.currency.converter.domains.Role;
-import com.nazareth.currency.converter.domains.User;
+import com.nazareth.currency.converter.domains.jpa.Role;
+import com.nazareth.currency.converter.domains.jpa.User;
 import com.nazareth.currency.converter.gateways.UserGateway;
 import java.util.Collection;
 import java.util.Optional;
@@ -14,6 +14,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/**
+ * //TODO AQUI TAMBÈM
+ *
+ * @author Claudio Nazareth
+ */
 @Service
 public class AuthenticateUser implements UserDetailsService {
 

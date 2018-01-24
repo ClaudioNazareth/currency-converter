@@ -1,6 +1,6 @@
 package com.nazareth.currency.converter.gateways.h2;
 
-import com.nazareth.currency.converter.domains.User;
+import com.nazareth.currency.converter.domains.jpa.User;
 import com.nazareth.currency.converter.gateways.UserGateway;
 import com.nazareth.currency.converter.gateways.h2.repositories.UserRepository;
 import java.util.Optional;

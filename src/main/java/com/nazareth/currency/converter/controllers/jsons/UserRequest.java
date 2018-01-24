@@ -1,6 +1,6 @@
 package com.nazareth.currency.converter.controllers.jsons;
 
-import com.nazareth.currency.converter.domains.User;
+import com.nazareth.currency.converter.domains.jpa.User;
 import com.nazareth.currency.converter.security.FieldMatch;
 import javax.validation.constraints.AssertTrue;
 import org.hibernate.validator.constraints.Email;

@@ -22,6 +22,8 @@ spring:
       open-in-view: true
       show-sql: true
       database-platform: h2
+    mongodb:
+      port: 12345
   datasource:
     url: jdbc:h2:mem:zooplus
     name: zooplus
@@ -31,15 +33,26 @@ spring:
       connection-timeout: 60000
       maximum-pool-size: 5
 
-endpoints:
-  flyway:
-    web:
-      enabled: true
-
 feign:
   currency:
     name: openexchangerates
-    url: https://openexchangerates.org/api/latest.json
+    url: https://openexchangerates.org/api
 
 #------------------------ Spring security ----------------------------------#
 security.basic.enabled: false # Security was disabled for this test
+
+logging:
+  file: currency-converter.log
+  level:
+    feign: DEBUG
+#------------------------ SPRING DATA MONGO -------------------------------#
+log4j:
+  category:
+    org:
+      springframework:
+        data:
+          mongodb: DEBUG
+  appender:
+    stdout:
+      layout:
+        ConversionPattern: '%d{ABSOLUTE} %5p %40.40c:%4L - %m%n'

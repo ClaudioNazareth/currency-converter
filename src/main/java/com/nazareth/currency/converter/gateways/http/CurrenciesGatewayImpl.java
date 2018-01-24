@@ -1,8 +1,8 @@
 package com.nazareth.currency.converter.gateways.http;
 
+import com.nazareth.currency.converter.domains.mongo.Currencies;
 import com.nazareth.currency.converter.gateways.CurrenciesGateway;
 import com.nazareth.currency.converter.gateways.http.feign.FeignCurrencyClient;
-import com.nazareth.currency.converter.gateways.http.feign.jsons.CurrenciesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,15 @@ public class CurrenciesGatewayImpl implements CurrenciesGateway {
 
   @Override
   @Cacheable
-  public CurrenciesResponse getCurrencies() {
-    return feignCurrencyClient.getCurrencies();
+  public Currencies getCurrencies() {
+    return feignCurrencyClient.getCurrencies().toDomain();
+  }
+
+  @Override
+  @Cacheable
+  public Currencies getHistoricalCurrencies(String date) {
+    StringBuilder stringBuilder = new StringBuilder(date);
+    stringBuilder.append(".json");
+    return feignCurrencyClient.getHistoricalCurrencies(stringBuilder.toString()).toDomain();
   }
 }

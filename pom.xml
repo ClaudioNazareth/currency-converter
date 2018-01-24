@@ -26,6 +26,7 @@
     <spring.fox.swagger.version>2.7.0</spring.fox.swagger.version>
     <jackson.datatype.jsr310.version>2.9.3</jackson.datatype.jsr310.version>
     <fixture.factory.version>3.1.0</fixture.factory.version>
+    <de.flapdoodle.embed.version>2.0.0</de.flapdoodle.embed.version>
   </properties>
 
   <dependencies>
@@ -52,10 +53,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    <!--<dependency>-->
-    <!--<groupId>org.flywaydb</groupId>-->
-    <!--<artifactId>flyway-core</artifactId>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
@@ -67,6 +64,10 @@
     <dependency>
       <groupId>org.thymeleaf.extras</groupId>
       <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
@@ -107,41 +108,39 @@
       <groupId>commons-beanutils</groupId>
       <artifactId>commons-beanutils</artifactId>
     </dependency>
-
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
       <version>2.7.2</version>
     </dependency>
-
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-java8</artifactId>
       <version>5.2.12.Final</version>
     </dependency>
-
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger2</artifactId>
       <version>${spring.fox.swagger.version}</version>
     </dependency>
-
     <dependency>
       <groupId>io.springfox</groupId>
       <artifactId>springfox-swagger-ui</artifactId>
       <version>${spring.fox.swagger.version}</version>
     </dependency>
-
-
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-jsr310</artifactId>
     </dependency>
-
     <dependency>
       <groupId>br.com.six2six</groupId>
       <artifactId>fixture-factory</artifactId>
       <version>${fixture.factory.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>de.flapdoodle.embed</groupId>
+      <artifactId>de.flapdoodle.embed.mongo</artifactId>
+      <version>${de.flapdoodle.embed.version}</version>
     </dependency>
   </dependencies>
 
