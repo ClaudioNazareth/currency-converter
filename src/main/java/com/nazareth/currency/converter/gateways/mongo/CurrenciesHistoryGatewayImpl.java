@@ -5,6 +5,7 @@ import com.nazareth.currency.converter.gateways.CurrenciesHistoryGateway;
 import com.nazareth.currency.converter.gateways.mongo.repositories.CurrenciesRepository;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,7 @@ public class CurrenciesHistoryGatewayImpl implements CurrenciesHistoryGateway {
   }
 
   @Override
+  @Cacheable(value = "findTop10ByUserUser", key = "#username")
   public Set<Currencies> findTop10ByUserUser(String username) {
     return currenciesRepository.findTop10ByUsernameOrderByIdDesc(username);
   }

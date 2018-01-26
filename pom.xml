@@ -27,6 +27,7 @@
     <jackson.datatype.jsr310.version>2.9.3</jackson.datatype.jsr310.version>
     <fixture.factory.version>3.1.0</fixture.factory.version>
     <de.flapdoodle.embed.version>2.0.0</de.flapdoodle.embed.version>
+    <embedded.redis.version>0.6</embedded.redis.version>
   </properties>
 
   <dependencies>
@@ -44,6 +45,10 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-undertow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -141,6 +146,16 @@
       <groupId>de.flapdoodle.embed</groupId>
       <artifactId>de.flapdoodle.embed.mongo</artifactId>
       <version>${de.flapdoodle.embed.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-cache</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.kstyrc</groupId>
+      <artifactId>embedded-redis</artifactId>
+      <version>${embedded.redis.version}</version>
     </dependency>
   </dependencies>
 

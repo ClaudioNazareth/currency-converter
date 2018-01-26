@@ -18,13 +18,13 @@ public class CurrenciesGatewayImpl implements CurrenciesGateway {
   }
 
   @Override
-  @Cacheable
+  @Cacheable(value = "getCurrencies")
   public Currencies getCurrencies() {
     return feignCurrencyClient.getCurrencies().toDomain();
   }
 
   @Override
-  @Cacheable
+  @Cacheable(value = "getHistoricalCurrencies", key = "#date")
   public Currencies getHistoricalCurrencies(String date) {
     StringBuilder stringBuilder = new StringBuilder(date);
     stringBuilder.append(".json");

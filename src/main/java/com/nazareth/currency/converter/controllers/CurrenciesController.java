@@ -22,7 +22,7 @@ public class CurrenciesController {
     this.getCurrencies = getCurrencies;
   }
 
-  @Cacheable
+  @Cacheable(value = "getCurrencies", key = "#date")
   @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
   public String getCurrencies(
       @RequestParam(value = "date", required = false) String date, Model model) {
