@@ -7,9 +7,12 @@ import com.nazareth.currency.converter.gateways.CurrenciesHistoryGateway;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 @Service
 public class GetCurrencies {
+
+  public static final String DATE_REGEX = "\\d{4}-\\d{2}-\\d{2}";
 
   private CurrenciesGateway currenciesGateway;
 
@@ -18,13 +21,15 @@ public class GetCurrencies {
   @Autowired
   public GetCurrencies(
       CurrenciesGateway currenciesGateway, CurrenciesHistoryGateway currenciesHistoryGateway) {
+    Assert.notNull(currenciesGateway, "CurrenciesGateway is required");
+    Assert.notNull(currenciesHistoryGateway, "CurrenciesHistoryGateway is required");
     this.currenciesGateway = currenciesGateway;
     this.currenciesHistoryGateway = currenciesHistoryGateway;
   }
 
   public Currencies getCurrencies(String date) {
 
-    if ((date != null && !date.isEmpty()) && !date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+    if ((date != null && !date.isEmpty()) && !date.matches(DATE_REGEX)) {
       new InvalidDateException(date);
     }
 
