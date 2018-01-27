@@ -7,10 +7,16 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Spring MVC Controller tho handle the Currencies Page
+ *
+ * @author Claudio Nazareth
+ */
 @Controller
 @RequestMapping("/currencies")
 public class CurrenciesController {
@@ -19,6 +25,7 @@ public class CurrenciesController {
 
   @Autowired
   public CurrenciesController(GetCurrencies getCurrencies) {
+    Assert.notNull(getCurrencies, "GetCurrencies is required");
     this.getCurrencies = getCurrencies;
   }
 

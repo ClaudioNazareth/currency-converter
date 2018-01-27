@@ -12,7 +12,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
 
-// handle 403 page
+/**
+ * Handle 403 page
+ *
+ * @author Claudio Nazareth
+ */
 @Component
 public class CurrencyConverterAccessDeniedHandler implements AccessDeniedHandler {
 

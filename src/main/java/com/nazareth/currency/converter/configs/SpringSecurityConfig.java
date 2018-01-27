@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/**
+ * Class responsible to configure Spring Security
+ *
+ * @author Claudio Nazareth
+ */
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -36,11 +41,21 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         .permitAll();
   }
 
+  /**
+   * Bean responsible to Encrypt the user password
+   *
+   * @return BCryptPasswordEncoder
+   */
   @Bean
   public BCryptPasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
 
+  /**
+   * Return Spring Authentication Provider
+   *
+   * @return DaoAuthenticationProvider
+   */
   @Bean
   public DaoAuthenticationProvider authenticationProvider() {
     DaoAuthenticationProvider auth = new DaoAuthenticationProvider();

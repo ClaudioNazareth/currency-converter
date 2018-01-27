@@ -6,8 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * Default Controller to handle Mvc pages request
+ *
+ * @author Claudio Nazareth
+ */
 @Controller
 public class DefaultController {
 
@@ -15,6 +21,7 @@ public class DefaultController {
 
   @Autowired
   public DefaultController(GetCurrencies getCurrencies) {
+    Assert.notNull(getCurrencies, "GetCurrencies is required");
     this.getCurrencies = getCurrencies;
   }
 
