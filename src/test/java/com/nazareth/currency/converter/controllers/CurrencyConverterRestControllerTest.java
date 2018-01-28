@@ -39,13 +39,12 @@ public class CurrencyConverterRestControllerTest {
 
   @Test
   public void should_return_currency() {
-
-    when(getCurrencies.getCurrencies(null))
+    when(getCurrencies.getCurrencies(null, null))
         .thenReturn(Fixture.from(Currencies.class).gimme(VALID_CURRENCY));
 
     final CurrenciesApiResponse currencies = currencyConverterRestController.getCurrencies(null);
 
-    verify(getCurrencies, times(1)).getCurrencies(null);
+    verify(getCurrencies, times(1)).getCurrencies(null, null);
     assertThat(currencies).isNotNull();
     assertThat(currencies.getCurrencyDate()).isNotNull().isExactlyInstanceOf(LocalDateTime.class);
     assertThat(currencies.getCurrencyBase()).isNotNull().isEqualTo("USD");

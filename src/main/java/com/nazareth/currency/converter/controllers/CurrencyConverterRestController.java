@@ -57,7 +57,9 @@ public class CurrencyConverterRestController {
   )
   public CurrenciesApiResponse getCurrencies(
       @RequestParam(value = "date", required = false) String date) {
-    return convertToJson(getCurrencies.getCurrencies(date));
+    return convertToJson(
+        getCurrencies.getCurrencies(
+            date, SecurityContextHolder.getContext().getAuthentication().getName()));
   }
 
   @GetMapping(

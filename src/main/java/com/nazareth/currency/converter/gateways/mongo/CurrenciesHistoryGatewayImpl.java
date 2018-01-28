@@ -6,8 +6,8 @@ import com.nazareth.currency.converter.gateways.mongo.repositories.CurrenciesRep
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 @Service
 public class CurrenciesHistoryGatewayImpl implements CurrenciesHistoryGateway {
@@ -16,12 +16,13 @@ public class CurrenciesHistoryGatewayImpl implements CurrenciesHistoryGateway {
 
   @Autowired
   public CurrenciesHistoryGatewayImpl(CurrenciesRepository currenciesRepository) {
+    Assert.notNull(currenciesRepository, "UserRepository is required");
     this.currenciesRepository = currenciesRepository;
   }
 
   @Override
-  public Currencies save(Currencies currencies) {
-    currencies.setUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+  public Currencies save(Currencies currencies, String username) {
+    currencies.setUsername(username);
     return currenciesRepository.save(currencies);
   }
 

@@ -27,10 +27,10 @@ public class GetCurrencies {
     this.currenciesHistoryGateway = currenciesHistoryGateway;
   }
 
-  public Currencies getCurrencies(String date) {
+  public Currencies getCurrencies(String date, String username) {
 
     if ((date != null && !date.isEmpty()) && !date.matches(DATE_REGEX)) {
-      new InvalidDateException(date);
+      throw new InvalidDateException(date);
     }
 
     Currencies currencies;
@@ -41,7 +41,7 @@ public class GetCurrencies {
       currencies = currenciesGateway.getHistoricalCurrencies(date);
     }
 
-    currenciesHistoryGateway.save(currencies);
+    currenciesHistoryGateway.save(currencies, username);
 
     return currencies;
   }

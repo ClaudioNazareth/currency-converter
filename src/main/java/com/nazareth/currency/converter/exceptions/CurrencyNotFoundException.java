@@ -1,7 +1,7 @@
 package com.nazareth.currency.converter.exceptions;
 
 /**
- * //TODO - Document
+ * Exception to be throw when currency is no found
  *
  * @author Claudio Nazareth
  */

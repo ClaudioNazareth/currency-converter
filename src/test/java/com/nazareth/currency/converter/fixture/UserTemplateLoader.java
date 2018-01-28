@@ -3,7 +3,9 @@ package com.nazareth.currency.converter.fixture;
 import br.com.six2six.fixturefactory.Fixture;
 import br.com.six2six.fixturefactory.Rule;
 import br.com.six2six.fixturefactory.loader.TemplateLoader;
+import com.nazareth.currency.converter.domains.jpa.Role;
 import com.nazareth.currency.converter.domains.jpa.User;
+import java.util.Arrays;
 
 public class UserTemplateLoader implements TemplateLoader {
 
@@ -21,6 +23,7 @@ public class UserTemplateLoader implements TemplateLoader {
                 add("lastName", "Nazareth");
                 add("password", "!@fsdmJIDAS#$%FGHFH");
                 add("email", "chtnazareth@gmail.com");
+                add("roles", Arrays.asList(new Role(("USER"))));
               }
             });
   }

@@ -13,9 +13,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
- * //TODO AQUI TAMBÈM
+ * Usa case responsible to authenticate the user on Spring Security
  *
  * @author Claudio Nazareth
  */
@@ -26,6 +27,7 @@ public class AuthenticateUser implements UserDetailsService {
 
   @Autowired
   public AuthenticateUser(UserGateway userGateway) {
+    Assert.notNull(userGateway, "UserGateway is required");
     this.userGateway = userGateway;
   }
 

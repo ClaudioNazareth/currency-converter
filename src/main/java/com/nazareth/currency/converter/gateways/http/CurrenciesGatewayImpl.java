@@ -4,7 +4,6 @@ import com.nazareth.currency.converter.domains.mongo.Currencies;
 import com.nazareth.currency.converter.gateways.CurrenciesGateway;
 import com.nazareth.currency.converter.gateways.http.feign.FeignCurrencyClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,13 +17,11 @@ public class CurrenciesGatewayImpl implements CurrenciesGateway {
   }
 
   @Override
-  @Cacheable(value = "getCurrencies")
   public Currencies getCurrencies() {
     return feignCurrencyClient.getCurrencies().toDomain();
   }
 
   @Override
-  @Cacheable(value = "getHistoricalCurrencies", key = "#date")
   public Currencies getHistoricalCurrencies(String date) {
     StringBuilder stringBuilder = new StringBuilder(date);
     stringBuilder.append(".json");

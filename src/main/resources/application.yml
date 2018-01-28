@@ -11,13 +11,6 @@ server:
       request-timeout: -1
 
 spring:
-  cache:
-    type: redis
-  redis:
-    host: localhost
-    port: 6379
-    expiration-time : 2000
-    database: 0
   data:
     h2:
       console:

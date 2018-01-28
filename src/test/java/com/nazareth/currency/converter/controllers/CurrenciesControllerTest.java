@@ -44,6 +44,6 @@ public class CurrenciesControllerTest {
 
     assertThat(indexPage).as("The return should be index").isEqualTo("index");
 
-    verify(getCurrencies, times(1)).getCurrencies(null);
+    verify(getCurrencies, times(1)).getCurrencies(null, null);
   }
 }

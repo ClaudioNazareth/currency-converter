@@ -5,9 +5,10 @@ import com.nazareth.currency.converter.gateways.UserGateway;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
- * //TODO AQUI TAMBÈM
+ * Use case to register and find Users
  *
  * @author Claudio Nazareth
  */
@@ -18,6 +19,7 @@ public class CrudUser {
 
   @Autowired
   public CrudUser(UserGateway userGateway) {
+    Assert.notNull(userGateway, "UserGateway is required");
     this.userGateway = userGateway;
   }
 

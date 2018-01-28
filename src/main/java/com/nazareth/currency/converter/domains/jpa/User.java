@@ -43,8 +43,6 @@ public class User extends BaseEntity {
     this.roles = Arrays.asList(new Role("ROLE_USER"));
   }
 
-  User() {}
-
   @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   @JoinTable(
     name = "USERS_ROLES",
@@ -52,6 +50,8 @@ public class User extends BaseEntity {
     inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")
   )
   private Collection<Role> roles;
+
+  User() {}
 
   public String getEmail() {
     return email;

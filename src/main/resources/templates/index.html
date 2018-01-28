@@ -17,6 +17,8 @@
 
   <div class="container">
     <div class="panel panel-default">
+      <p class="error-message"
+         th:text="${error}">Validation error</p>
       <div class="panel-heading">Currency converter</div>
       <div class="panel-body">
         <form th:action="@{/currencies}" method="get">

@@ -16,8 +16,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class SpringSecurityMock {
 
   public static void mockUser() {
-    User applicationUser = mock(User.class);
+    User applicationUser = new User("Claudio", "Nazareth", "chtnazareth@gmail.com", "1qazxSW@");
     Authentication authentication = mock(Authentication.class);
+
     SecurityContext securityContext = mock(SecurityContext.class);
     when(securityContext.getAuthentication()).thenReturn(authentication);
     SecurityContextHolder.setContext(securityContext);

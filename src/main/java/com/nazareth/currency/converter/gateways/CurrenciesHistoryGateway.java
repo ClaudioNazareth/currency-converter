@@ -5,7 +5,7 @@ import java.util.Set;
 
 public interface CurrenciesHistoryGateway {
 
-  Currencies save(Currencies currencies);
+  Currencies save(Currencies currencies, String username);
 
   Set<Currencies> findTop10ByUserUser(String username);
 }
