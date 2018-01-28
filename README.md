@@ -117,7 +117,7 @@ You need authenticate first
 
 #### Data base
 
-To save the user and roles i choose H@
+To save the user and roles i choose H2
 - The application contains a built-in **h2** database that is initialized along with application 
   - When a user is registered the password is **encrypted** using spring security  
   - see application.yml for more details
